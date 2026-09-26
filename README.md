@@ -19,13 +19,18 @@ This project is based on my final-year Mathematics & Statistics research project
 - SciPy
 - Matplotlib
 
-## Project structure
+## Project Structure
 
-```text
-src/
-    dispersion_relation.py
+src/  
+&nbsp;&nbsp;&nbsp;&nbsp;dispersion_relation.py
 
-examples/
-    wavenumber_analysis.py
-    tension_analysis.py
-    bending_analysis.py
+examples/  
+&nbsp;&nbsp;&nbsp;&nbsp;wavenumber_analysis.py  
+&nbsp;&nbsp;&nbsp;&nbsp;tension_analysis.py  
+&nbsp;&nbsp;&nbsp;&nbsp;bending_analysis.py
+
+## Background
+
+The project investigates transitions between stable and unstable modes by examining the real and imaginary components of the dispersion relation.
+
+A non-zero imaginary component of frequency corresponds to exponential growth or decay of a perturbation, allowing stability boundaries to be identified numerically.
