@@ -31,6 +31,18 @@ omega_plus, omega_minus = dispersion_relation(
     bending=bending,
 )
 
+# Identify the onset of instability
+growth_rate = omega_plus.imag
+
+unstable = np.where(growth_rate > 1e-8)[0]
+
+if len(unstable) > 0:
+    critical_index = unstable[0]
+    k_critical = k_values[critical_index]
+    print(f"Critical wavenumber: k_c = {k_critical:.4f}")
+else:
+    k_critical = None
+    print("No instability detected in the selected wavenumber range.")
 
 # Plot the imaginary components
 plt.figure(figsize=(8, 5))
@@ -48,6 +60,14 @@ plt.plot(
 )
 
 plt.axhline(0, linewidth=0.8, linestyle="--")
+
+if k_critical is not None:
+    plt.axvline(
+        k_critical,
+        linestyle="--",
+        linewidth=1,
+        label=fr"$k_c \approx {k_critical:.3f}$",
+    )
 
 plt.xlabel(r"Wavenumber $k$")
 plt.ylabel(r"$\mathrm{Im}(\omega)$")
