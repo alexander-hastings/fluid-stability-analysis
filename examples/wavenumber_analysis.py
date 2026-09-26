@@ -138,6 +138,7 @@ if k_critical is not None:
         k_critical,
         linewidth=1,
         linestyle="--",
+        color="black",
         label=fr"$k_c = {k_critical:.3f}$",
     )
 
