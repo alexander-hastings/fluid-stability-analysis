@@ -65,3 +65,32 @@ def dispersion_relation(
     omega_minus = base_frequency - sqrt_discriminant
 
     return omega_plus, omega_minus
+
+
+def dispersion_discriminant(
+    k,
+    rho1,
+    rho2,
+    U1,
+    U2,
+    wall_mass,
+    tension=0.0,
+    bending=0.0,
+    gravity=9.81,
+):
+    denominator = rho1 + rho2 + wall_mass
+
+    return (
+        k**2
+        * (
+            (rho1 * U1 + rho2 * U2) ** 2 / denominator**2
+            - (rho1 * U1**2 + rho2 * U2**2) / denominator
+        )
+        + k
+        / denominator
+        * (
+            gravity * (rho1 - rho2)
+            + tension * k
+            + bending * k**3
+        )
+    )
